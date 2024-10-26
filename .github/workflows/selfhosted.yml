@@ -463,6 +463,9 @@ jobs:
 
         # Sync the repositories
         /opt/crave/resync.sh  && \
+        rm -rf kernel/xiaomi/sm6150 && \
+        git clone https://github.com/crdroidandroid/android_kernel_xiaomi_courbet kernel/xiaomi/sm6150 && \
+        cp kernel/xiaomi/sm6150/arch/arm64/configs/courbet_defconfig kernel/xiaomi/sm6150/arch/arm64/configs/vendor/courbet.config && \
 
         # Set up build environment
         export BUILD_USERNAME=${{ github.actor }} ; \
